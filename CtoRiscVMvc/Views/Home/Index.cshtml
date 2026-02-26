@@ -1,0 +1,20 @@
+﻿@model CtoRiscVMvc.Models.ConversionModel
+
+@{
+    ViewData["Title"] = "C to RISC-V Loop Converter";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Index" method="post">
+    <label for="InputCCode">C Kodunu Giriniz:</label><br />
+    <textarea asp-for="InputCCode" rows="10" cols="60"></textarea><br />
+
+    <button type="submit">Çevir</button>
+</form>
+
+@if (Model != null && !string.IsNullOrEmpty(Model.OutputRiscVCode))
+{
+    <h3>RISC-V Kodunuz:</h3>
+    <pre>@Model.OutputRiscVCode</pre>
+}
